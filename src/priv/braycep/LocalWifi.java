@@ -15,12 +15,13 @@ public class LocalWifi extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JFrame localFrame;
 	private JPanel contentPane;
+	private static LocalWifi localWifi = null;
 	private static JTextArea wifiInfo;
 
 	/**
 	 * Create the frame...By WindowBiulder
 	 */
-	public LocalWifi() {
+	private LocalWifi() {
 		localFrame = this;
 		setTitle("本地wifi信息查看");
 		setBounds(MainFrame.WIDTH / 2 - 225, MainFrame.HEIGHT / 2 - 150, 256, 300);
@@ -55,7 +56,14 @@ public class LocalWifi extends JFrame {
 		wifiInfo.append("\n********************");
 		wifiInfo.append("Wifi:\t\n"+ssid+"\nkey:\n"+key+"\n");
 	}
-	
+
+	public static LocalWifi getInstance(){
+		if (localWifi == null) {
+			localWifi = new LocalWifi();
+		}
+		return localWifi;
+	}
+
 	/**
 	 * 添加名称
 	 * @param ssid 添加wifi名称
