@@ -159,6 +159,7 @@ public class MainFrame extends JFrame {
                     //逐行检测每行中是否包含“已停”这个字符串
                     while ((line = br.readLine()) != null){
                         if (line.contains("已停")) {
+                            System.out.println(line);
                             //给出已经关闭WiFi的提示
                             JOptionPane.showMessageDialog(mainFrame, "热点已关闭！", "警告：", JOptionPane.INFORMATION_MESSAGE);
                         }
